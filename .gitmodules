@@ -3,7 +3,7 @@
 	url = https://github.com/Xilinx/meta-xilinx.git
 [submodule "poky"]
 	path = poky
-	url = git://git.yoctoproject.org/poky.git
+	url = https://github.com/peteasa/poky.git
 [submodule "meta-epiphany"]
 	path = meta-epiphany
 	url = https://github.com/peteasa/meta-epiphany.git
