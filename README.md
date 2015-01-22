@@ -21,9 +21,21 @@ oe-init-build-env will change the working directory to the build folder
 To start the yocto build in the build folder type
    bitbake hdmi-image
 
-Other images to build can be found in meta-project/recipes/images
+If you want an SDK then in the same build folder type
+   bitbake -c populate_sdk hdmi-image
+
+Other images to build can be found in meta-parallella/recipes-epiphany/images
 
 The result will be a complete build for the parallella board built on
 the build machine.
+   parallella-yoctobuild/build_parallella/tmp/deploy/images/parallella-hdmi
 
-TODO writing to the SD card
+Plus for free a complete distribution folder that you publish from a web server 
+to update specific packages on the target - just like you use when you run
+sudo apt-get install on your Linux build machine.
+   parallella-yoctobuild/build_parallella/tmp/deploy/rpm
+
+The SDK is found at
+   parallella-yoctobuild/build_parallella/tmp/deploy/sdk
+
+TODO instructions for writing to the SD card
