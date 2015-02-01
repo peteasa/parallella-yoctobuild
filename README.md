@@ -28,7 +28,7 @@ To prepare and run `oe-init-build-env` you need to run the `prepareyoctobuild.sh
 $ source prepareyoctobuild.sh
 ```
 
-This needs to be done once per session (if you don't want to run the script manually for each session, add a line to your `.bashrc` file).
+This needs to be done once per session.
 
 `oe-init-build-env` will change the working directory to the `build` folder.
 
