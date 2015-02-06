@@ -1,0 +1,57 @@
+--- a/build_tools/make_common.rules
++++ b/build_tools/make_common.rules
+@@ -7,6 +7,18 @@ DEBUGDIR   		= Debug
+ DEPDIR 			= .deps
+ df 				= $(basename $(DEPDIR)/$@)
+ 
++##
++## Rules for cross compiling for epiphany-elf do not need these
++##
++ifneq (,$(findstring arm-poky-linux-gnueabi,$(CROSS_COMPILE)))
++CXXFLAGS += -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon
++CFLAGS += -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon
++CXXFLAGS += --sysroot=/opt/poky/1.7/sysroots/armv7ahf-vfp-neon-poky-linux-gnueabi
++CXXFLAGS += -isysroot /opt/poky/1.7/sysroots/armv7ahf-vfp-neon-poky-linux-gnueabi
++CFLAGS += --sysroot=/opt/poky/1.7/sysroots/armv7ahf-vfp-neon-poky-linux-gnueabi
++CFLAGS += -isysroot /opt/poky/1.7/sysroots/armv7ahf-vfp-neon-poky-linux-gnueabi
++endif
++
+ INSTALL 		= /usr/bin/install
+ 
+ RELOBJS    := $(SRCS:%.cpp=$(RELEASEDIR)/%.o) 
+diff --git a/build_tools/make_sharedlib.rules b/build_tools/make_sharedlib.rules
+index 3e8de26..33f7aca 100644
+--- a/build_tools/make_sharedlib.rules
++++ b/build_tools/make_sharedlib.rules
+@@ -9,8 +9,11 @@ LIBEXT		    = .so
+ LIBSONAME      	= lib$(LIBNAME)$(LIBEXT)$(LIBVERMAJ)
+ LIBREALNAME    	= $(LIBSONAME)$(LIBVERMIN)$(LIBVERBLD)
+ 
+-CXXFLAGS 	   += -fPIC
+-CFLAGS         += -fPIC
++## to debug compiler problems add --verbose 
++CXXFLAGS 	   += -fPIC 
++CFLAGS         += -fPIC 
++
++## to debug linker problems add -Wl,--verbose
+ LNK	 		    = $(CC) -shared -Wl,-soname,$(LIBSONAME)
+ 
+ INSTALL_DIR		= $(BUILD_ROOT)/x3c/lib
+diff --git a/src/e-xml/Makefile b/src/e-xml/Makefile
+index f7a158b..f99d107 100644
+--- a/src/e-xml/Makefile
++++ b/src/e-xml/Makefile
+@@ -10,6 +10,13 @@ LIBNAME			= e-xml
+ 
+ EXTRACXXFLAGS  	= -fmessage-length=0 -DPIC -Wno-write-strings -DLINUX -DUNIX
+ 
++##
++## Not sure why but this is needed
++##
++ifneq (,$(findstring arm-poky-linux-gnueabi,$(CXX)))
++EXTRACXXFLAGS  	+= -D__linux__
++endif
++
+ # List of include search paths
+ INCLUDES    = \
+ 	-I../e-hal/src				\
