@@ -206,13 +206,15 @@ then
   echo "Fetch the epiphany-libs"
   echo
 
-  git clone -b 2015.1 https://github.com/adapteva/epiphany-libs.git
+  ## New SDK git clone -b 2015.1 https://github.com/adapteva/epiphany-libs.git
+  git clone -b esdk.5.13.09.10 https://github.com/adapteva/epiphany-libs.git
 
   ##
   ## Now apply the patches to make the Makefile yocto friendly
   ##
   cd ${SDKBUILDROOT}/epiphany-libs
-  git apply --stat ${SDKBUILDROOT}/epiphany-libs.patch
+  ## New SDK git apply ${SDKBUILDROOT}/epiphany-libs.patch
+  git apply ${SDKBUILDROOT}/epiphany-libs-esdk.5.13.09.10.patch
 fi
 
 ##
@@ -220,6 +222,7 @@ fi
 ## Now start the build
 ##
 ##
+BSPS="zed_E16G3_512mb zed_E64G4_512mb parallella_E16G3_1GB"
 MAKE="make  " 
 CLEAN=" clean "
 
@@ -260,7 +263,7 @@ function build-hal() {
 	echo '==============================='
 	echo '============ E-HAL ============'
 	echo '==============================='
-	cd src/e-hal
+	cd ${SDKBUILDROOT}/epiphany-libs/src/e-hal
 	${MAKE} $CLEAN all
 	for bsp in ${BSPS}; do
 		cp -f Release/libe-hal.so ../../bsps/${bsp}
@@ -384,19 +387,24 @@ build-lib
 ##
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-objcopy ${OECORE_TARGET_SYSROOT}/usr/bin/
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-objcopy ${OECORE_NATIVE_SYSROOT}/usr/bin/
-#cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-hw-rev/e-hw-rev.sh ${OECORE_TARGET_SYSROOT}/usr/bin/e-hw-rev
+cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-hw-rev/e-hw-rev.sh ${OECORE_TARGET_SYSROOT}/usr/bin/e-hw-rev
+cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-hw-rev/e-hw-rev.sh ${OECORE_NATIVE_SYSROOT}/usr/bin/e-hw-rev
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-hw-rev/e-hw-rev ${OECORE_TARGET_SYSROOT}/usr/bin/e-hw-rev.e
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-hw-rev/e-hw-rev ${OECORE_NATIVE_SYSROOT}/usr/bin/e-hw-rev.e
-#cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-loader/e-loader.sh ${OECORE_TARGET_SYSROOT}/usr/bin/e-loader
+cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-loader/e-loader.sh ${OECORE_TARGET_SYSROOT}/usr/bin/e-loader
+cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-loader/e-loader.sh ${OECORE_NATIVE_SYSROOT}/usr/bin/e-loader
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-loader/Debug/e-loader ${OECORE_TARGET_SYSROOT}/usr/bin/e-loader.e
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-loader/Debug/e-loader ${OECORE_NATIVE_SYSROOT}/usr/bin/e-loader.e
-#cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-read/e-read.sh ${OECORE_TARGET_SYSROOT}/usr/bin/e-read
+cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-read/e-read.sh ${OECORE_TARGET_SYSROOT}/usr/bin/e-read
+cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-read/e-read.sh ${OECORE_NATIVE_SYSROOT}/usr/bin/e-read
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-read/Debug/e-read ${OECORE_TARGET_SYSROOT}/usr/bin/e-read.e
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-read/Debug/e-read ${OECORE_NATIVE_SYSROOT}/usr/bin/e-read.e
-#cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-reset/e-reset.sh ${OECORE_TARGET_SYSROOT}/usr/bin/e-reset
+cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-reset/e-reset.sh ${OECORE_TARGET_SYSROOT}/usr/bin/e-reset
+cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-reset/e-reset.sh ${OECORE_NATIVE_SYSROOT}/usr/bin/e-reset
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-reset/e-reset ${OECORE_TARGET_SYSROOT}/usr/bin/e-reset.e
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-reset/e-reset ${OECORE_NATIVE_SYSROOT}/usr/bin/e-reset.e
-#cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-write/e-write.sh ${OECORE_TARGET_SYSROOT}/usr/bin/e-write
+cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-write/e-write.sh ${OECORE_TARGET_SYSROOT}/usr/bin/e-write
+cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-write/e-write.sh ${OECORE_NATIVE_SYSROOT}/usr/bin/e-write
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-write/Debug/e-write ${OECORE_TARGET_SYSROOT}/usr/bin/e-write.e
 cp  ${SDKBUILDROOT}/epiphany-libs/src/e-utils/e-write/Debug/e-write ${OECORE_NATIVE_SYSROOT}/usr/bin/e-write.e
 
