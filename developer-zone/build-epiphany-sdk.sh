@@ -34,8 +34,8 @@ fi
 
 if ! [ -d ${PARALLELLA_LINUX_HOME}/include/uapi/linux ]
 then
-  echo "NOTE: To build e-memman library you need uapi. Rebuild SDK with IMAGE_INSTALL += kernel-dev"
-  echo "Continuing without e-memman"
+  echo "NOTE: To build e-hal you need uapi. Rebuild SDK with IMAGE_INSTALL += kernel-dev"
+  echo "Continuing without e-hal"
   echo
 fi
 
