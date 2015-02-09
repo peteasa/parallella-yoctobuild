@@ -1,41 +1,67 @@
-parallella-yoctobuild
-=====================
+# parallella-yoctobuild
 
-START HERE - A Simple to use build environment for parallella using yocto
+START HERE - A Simple build environment for [Parallella](http://www.parallella.org/) using [Yocto](http://www.yoctoproject.org/)
 
-Instructions
-============
+## Instructions
 
-Clone this onto your Linux build machine then
+### Cloning this repository
 
-Once only task - to prepare the environment, in this folder type
-   source initgitsubmodules.sh
+Clone this repository onto your Linux build machine:
+```bash
+$ git clone git@github.com:peteasa/parallella-yoctobuild
+$ cd parallella-yoctobuild
+```
 
-The result will be new folders poky, meta-xilinx, meta-parallella
-and meta-epiphany created from specific commits on github.
+To prepare the environment and download the necessary git submodules, you need to run the `initgitsubmodules.sh` script. This only needs to be done once:
 
-Once per session - to prepare and run oe-init-build-env type
-   source prepareyoctobuild.sh
+```bash
+$ source initgitsubmodules.sh
+```
 
-oe-init-build-env will change the working directory to the build folder
-To start the yocto build in the build folder type
-   bitbake hdmi-image
+The result will be new folders `poky`, `meta-xilinx`, `meta-parallella` and `meta-epiphany` created from specific commits on github.
 
-If you want an SDK then in the same build folder type
-   bitbake -c populate_sdk hdmi-image
+### Setting up your shell environment
 
-Other images to build can be found in meta-parallella/recipes-epiphany/images
+To prepare and run `oe-init-build-env` you need to run the `prepareyoctobuild.sh` script:
 
-The result will be a complete build for the parallella board built on
-the build machine.
-   parallella-yoctobuild/build_parallella/tmp/deploy/images/parallella-hdmi
+```bash
+$ source prepareyoctobuild.sh
+```
 
-Plus for free a complete distribution folder that you publish from a web server 
-to update specific packages on the target - just like you use when you run
-sudo apt-get install on your Linux build machine.
-   parallella-yoctobuild/build_parallella/tmp/deploy/rpm
+This needs to be done once per session.
 
-The SDK is found at
-   parallella-yoctobuild/build_parallella/tmp/deploy/sdk
+`oe-init-build-env` will change the working directory to the `build` folder.
 
-TODO instructions for writing to the SD card
+### Building a new development environment
+
+To start the yocto build in the `build` folder run:
+
+```bash
+$ bitbake hdmi-image
+```
+
+If you want an SDK then in the same `build` folder, run:
+
+```bash
+$ bitbake -c populate_sdk hdmi-image
+```
+
+Other images to build can be found in `meta-parallella/recipes-epiphany/images`.
+
+The result will be a complete build for the parallella board built on the build machine
+
+`parallella-yoctobuild/build_parallella/tmp/deploy/images/parallella-hdmi`
+
+Plus for free a complete distribution folder that you publish from a web server to update specific packages on the target - just like you use when you run `sudo apt-get install` on your Linux build machine:
+
+```bash
+$ parallella-yoctobuild/build_parallella/tmp/deploy/rpm
+```
+
+The SDK is found at `parallella-yoctobuild/build_parallella/tmp/deploy/sdk`
+
+---------------------------------------
+
+  * TODO instructions for writing to the SD card.
+  * TODO instructions for contributors.
+  * TODO how to apt-get install any other packages needed - e.g. `chrpath`, `libsdl-native`.
