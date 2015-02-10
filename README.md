@@ -4,6 +4,14 @@ START HERE - A Simple build environment for [Parallella](http://www.parallella.o
 
 ## Instructions
 
+### Installing required packages
+
+To use `yocto` you first need to install some packages. This assumes you are working on a Ubuntu machine:
+
+```bash
+$ sudo apt-get install build-essential git libsdl-dev chrpath yocto-reader
+```
+
 ### Cloning this repository
 
 Clone this repository onto your Linux build machine:
@@ -64,4 +72,3 @@ The SDK is found at `parallella-yoctobuild/build_parallella/tmp/deploy/sdk`
 
   * TODO instructions for writing to the SD card.
   * TODO instructions for contributors.
-  * TODO how to apt-get install any other packages needed - e.g. `chrpath`, `libsdl-native`.
