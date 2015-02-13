@@ -70,9 +70,9 @@ The SDK is found at `parallella-yoctobuild/build_parallella/tmp/deploy/sdk`
 
 ### Links to other information
 
-Troubleshooting notes - [Troubleshooting notes](https://github.com/peteasa/meta-parallella/wiki/Troubleshooting-notes)
+Troubleshooting notes - [Troubleshooting notes](https://github.com/peteasa/parallella-yoctobuild/wiki/Troubleshooting-notes)
 
-Instructions for contributors - [Instructions for contributors](https://github.com/peteasa/meta-parallella/wiki/Instructions-for-contributors)
+Instructions for contributors - [Instructions for contributors](https://github.com/peteasa/parallella-yoctobuild/wiki/Instructions-for-contributors)
 
 
 ---------------------------------------
