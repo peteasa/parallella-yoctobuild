@@ -63,12 +63,18 @@ The result will be a complete build for the parallella board built on the build 
 Plus for free a complete distribution folder that you publish from a web server to update specific packages on the target - just like you use when you run `sudo apt-get install` on your Linux build machine:
 
 ```bash
-$ parallella-yoctobuild/build_parallella/tmp/deploy/rpm
+$ smart update
 ```
 
 The SDK is found at `parallella-yoctobuild/build_parallella/tmp/deploy/sdk`
 
+### Links to other information
+
+Troubleshooting notes - [Troubleshooting notes](https://github.com/peteasa/meta-parallella/wiki/Troubleshooting-notes)
+
+Instructions for contributors - [Instructions for contributors](https://github.com/peteasa/meta-parallella/wiki/Instructions-for-contributors)
+
+
 ---------------------------------------
 
   * TODO instructions for writing to the SD card.
-  * TODO instructions for contributors.
