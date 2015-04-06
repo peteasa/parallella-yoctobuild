@@ -10,3 +10,6 @@
 [submodule "meta-parallella"]
 	path = meta-parallella
 	url = https://github.com/peteasa/meta-parallella
+[submodule "meta-exotic"]
+	path = meta-exotic
+	url = https://github.com/peteasa/meta-exotic.git
