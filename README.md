@@ -60,10 +60,11 @@ The result will be a complete build for the parallella board built on the build 
 
 `parallella-yoctobuild/build_parallella/tmp/deploy/images/parallella-hdmi`
 
-Plus for free a complete distribution folder that you publish from a web server to update specific packages on the target - just like you use when you run `sudo apt-get install` on your Linux build machine:
+Plus for free a complete distribution folder that you publish from a web server to update specific packages on the target - just like you use when you run `sudo apt-get install` on your Linux build machine.  This project uses [smart](https://labix.org/smart) as the package manager on the target:
 
 ```bash
 $ smart update
+$ smart upgrade
 ```
 
 The SDK is found at `parallella-yoctobuild/build_parallella/tmp/deploy/sdk`
