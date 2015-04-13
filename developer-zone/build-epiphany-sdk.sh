@@ -50,7 +50,7 @@ export EPIPHANY_HOME=${OECORE_NATIVE_SYSROOT}/usr/epiphany/epiphany-sdk
 ##
 ##
 
-if ! [ -f ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/libepiphany.a ]
+if ! [ -f ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libepiphany.a ]
 then
   echo "WARNING! You seem to be using an old version of the yocto build system. Proceeding on best effort!"
   echo "Attempting to create epiphany friendly yocto SDK!"
@@ -66,47 +66,21 @@ then
   cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/gcc/epiphany-elf/4.8.2/libg*.a ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/gcc/epiphany-elf/4.8.2/
 
   # libgloss
-  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/cache*.o  ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
-  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/crt0.o  ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
-  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libepi*  ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
-  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libnosys*  ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
+  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/cache*.o  ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/
+  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/crt0.o  ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/
+  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libepi*  ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/
+  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libnosys*  ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/
 
   # newlib
   cp -r ${OECORE_TARGET_SYSROOT}/usr/epiphany-elf/include/ ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/
-  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libc.a ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
-  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libg.a ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
-  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libm.a ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
+  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libc.a ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/
+  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libg.a ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/
+  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libm.a ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/
 
   # gcc-runtime
   cp -r ${OECORE_TARGET_SYSROOT}/usr/epiphany-elf/include/c++ ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/include 
-  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libs* ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
+  cp ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/libs* ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/gcc/epiphany-elf/4.8.2/
 fi
-
-## Now help the compiler find the libs
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/cachemanager.o
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/cachemanager.o ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/cachemanager.o
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/crt0.o
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/crt0.o ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/crt0.o
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libepiphany.a
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/libepiphany.a ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libepiphany.a
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libnosys.a
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/libnosys.a ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libnosys.a
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libc.a
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/libc.a ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libc.a
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libg.a
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/libg.a ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libg.a
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libm.a
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/libm.a ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libm.a
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libstdc++.a
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/libstdc++.a ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libstdc++.a
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libstdc++.a-gdb.py
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/libstdc++.a-gdb.py ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libstdc++.a-gdb.py
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libstdc++.la
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/libstdc++.la ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libstdc++.la
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libsupc++.a
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/libsupc++.a ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libsupc++.a
-rm ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libsupc++.la
-ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/libsupc++.la ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libsupc++.la
 
 export EPIPHANY_HDF=${EPIPHANY_HOME_TARGET}/bsps/current/platform.hdf
 
@@ -185,6 +159,13 @@ ln -s ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf ${EPIPHANY_HOME_TARGET}/tool
 ln -s ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf ${EPIPHANY_HOME}/tools/e-gnu/epiphany-elf/lib
 ln -s ${OECORE_TARGET_SYSROOT}/usr/epiphany-elf/lib/ldscripts ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/
 ln -s ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/ldscripts ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
+ln -s ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/cachemanager.o ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
+ln -s ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/crt0.o ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
+ln -s ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libc.a ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
+ln -s ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libepiphany.a ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
+ln -s ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libg.a ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
+ln -s ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libm.a ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
+ln -s ${OECORE_NATIVE_SYSROOT}/usr/epiphany-elf/lib/libnosys.a ${OECORE_NATIVE_SYSROOT}/usr/lib/epiphany-elf/
 ln -s ${OECORE_TARGET_SYSROOT}/usr/bin ${EPIPHANY_HOME_TARGET}/tools/e-gnu/
 ln -s ${OECORE_NATIVE_SYSROOT}/usr/bin ${EPIPHANY_HOME}/tools/e-gnu/
 ln -s ${OECORE_TARGET_SYSROOT}/usr/lib/epiphany-elf/gcc ${EPIPHANY_HOME_TARGET}/tools/e-gnu/lib
