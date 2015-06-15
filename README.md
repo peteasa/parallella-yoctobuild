@@ -6,10 +6,10 @@ START HERE - A Simple build environment for [Parallella](http://www.parallella.o
 
 ### Installing required packages
 
-To use `yocto` you first need to install some packages. This assumes you are working on a Ubuntu machine:
+To use `yocto` you first need to install some packages. See latest [Yocto Project Quick Start](http://www.yoctoproject.org/docs/latest/yocto-project-qs/yocto-project-qs.html). This assumes you are working on a Ubuntu machine:
 
 ```bash
-$ sudo apt-get install build-essential git libsdl-dev chrpath yocto-reader
+$ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm
 ```
 
 ### Cloning this repository
