@@ -1,4 +1,6 @@
-# parallella-yoctobuild
+# parallella-yoctobuild elink-redesign
+
+THIS BRANCH IS IN DEVELOPMENT.  The aim is to create an hdmi version of the elink-redesign project with 2015.1 SDK
 
 START HERE - A Simple build environment for [Parallella](http://www.parallella.org/) using [Yocto](http://www.yoctoproject.org/)
 
