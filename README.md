@@ -1,8 +1,12 @@
-# parallella-yoctobuild
+# parallella-yoctobuild `parallella-old-elink`
 
-START HERE - A Simple build environment for [Parallella](http://www.parallella.org/) using [Yocto](http://www.yoctoproject.org/)
+COMBINED FPGA and LINUX environment START IN https://github.com/peteasa/parallella branch `old-elink`
+
+If you just want the yocto build environment START IN https://github.com/peteasa/parallella-yocobuild branch `yoctobuild`
 
 ## Instructions
+
+For full instructions see https://github.com/peteasa/parallella branch `parallella-old-elink`
 
 ### Installing required packages
 
@@ -11,22 +15,6 @@ To use `yocto` you first need to install some packages. See latest [Yocto Projec
 ```bash
 $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm
 ```
-
-### Cloning this repository
-
-Clone this repository onto your Linux build machine:
-```bash
-$ git clone git@github.com:peteasa/parallella-yoctobuild
-$ cd parallella-yoctobuild
-```
-
-To prepare the environment and download the necessary git submodules, you need to run the `initgitsubmodules.sh` script. This only needs to be done once:
-
-```bash
-$ source initgitsubmodules.sh
-```
-
-The result will be new folders `poky`, `meta-xilinx`, `meta-parallella` and `meta-epiphany` created from specific commits on github.
 
 ### Setting up your shell environment
 
