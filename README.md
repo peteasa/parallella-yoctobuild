@@ -1,6 +1,8 @@
-# parallella-yoctobuild
+# parallella-yoctobuild - yoctobuild branch
 
-START HERE - A Simple build environment for [Parallella](http://www.parallella.org/) using [Yocto](http://www.yoctoproject.org/)
+NOTE: This branch uses rather old linux and fpga.  It still all works but you might be better off moving to the elink-redesign branch or even visiting [FPGA and Linux Development Combined](https://github.com/peteasa/parallella)
+
+A Simple build environment for [Parallella](http://www.parallella.org/) using [Yocto](http://www.yoctoproject.org/)
 
 ## Instructions
 
