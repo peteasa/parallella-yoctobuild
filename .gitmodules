@@ -13,3 +13,6 @@
 [submodule "meta-exotic"]
 	path = meta-exotic
 	url = https://github.com/peteasa/meta-exotic.git
+[submodule "meta-example"]
+	path = meta-example
+	url = https://github.com/peteasa/meta-example.git
