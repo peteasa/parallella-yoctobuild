@@ -6,7 +6,7 @@ echo "  source setup-epiphany-sdk-in-poky-sdk.sh"
 if ! [ -d "/opt/poky" ]
 then
   echo
-  echo "NOTE: To run this script you must create the yocto SDK"
+  echo "NOTE: To run this script you must create the yocto SDK including IMAGE_INSTALL += kernel-dev kernel-devsrc see hdmi-image.bb"
   echo "One way to create the SDK is with: bitbake -c populate_sdk hdmi-image"
   echo "    Then install the SDK using the script found at "
   echo "    build_parallella/tmp/deploy/sdk/poky-glibc-x86_64-hdmi-image-debug-armv7ahf-vfp-neon-toolchain-1.7.sh"
