@@ -83,11 +83,9 @@ The SDK is found at `parallella/parallella-yoctobuild/build_parallella/tmp/deplo
 
 ### Links to other information
 
+Tutorials - [](https://github.com/peteasa/parallella/wiki/Tutorial-index)
+
 Troubleshooting notes - [Troubleshooting notes](https://github.com/peteasa/parallella-yoctobuild/wiki/Troubleshooting-notes)
 
 Instructions for contributors - [Instructions for contributors](https://github.com/peteasa/parallella-yoctobuild/wiki/Instructions-for-contributors)
 
-
----------------------------------------
-
-  * TODO instructions for writing to the SD card.
