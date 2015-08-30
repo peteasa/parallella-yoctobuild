@@ -1,8 +1,13 @@
 # parallella-yoctobuild elink-redesign
 
-THIS BRANCH IS IN DEVELOPMENT.  The aim is to create an hdmi version of the elink-redesign project with 2015.1 SDK
+The aim of this project is to create an hdmi version of the elink-redesign project with 2015.1 SDK
 
-START HERE - A Simple build environment for [Parallella](http://www.parallella.org/) using [Yocto](http://www.yoctoproject.org/)
+A Simple build environment for [Parallella](http://www.parallella.org/) using [Yocto](http://www.yoctoproject.org/)
+
+Two branches are significant in this repository:
+
+- [elink-redesign](https://github.com/peteasa/parallella-yoctobuild) - this branch 
+- [parallella-elink-redesign](https://github.com/peteasa/parallella-yoctobuild/tree/parallella-elink-redesign) - contains an example layer that demonstrates how to extend the yocto build to add your own design.  See the [parallella](https://github.com/peteasa/parallella/wiki) project for more details and Tutorials
 
 ## Instructions
 
@@ -28,7 +33,7 @@ To prepare the environment and download the necessary git submodules, you need t
 $ source initgitsubmodules.sh
 ```
 
-The result will be new folders `poky`, `meta-xilinx`, `meta-parallella` and `meta-epiphany` created from specific commits on github.
+The result will be new folders `poky`, `meta-xilinx`, `meta-parallella`, `meta-epiphany` and `meta-exotic` created from specific commits on github.
 
 ### Setting up your shell environment
 
