@@ -2,5 +2,8 @@
 downloads/
 # folder for parallella build and distribution tree
 build_parallella/
-
-
+# Add some suitable folder names for projects
+meta-mywork/
+meta-project/
+meta-projects/
+meta-test/
