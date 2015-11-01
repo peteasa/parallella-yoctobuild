@@ -2,6 +2,8 @@
 downloads/
 # folder for parallella build and distribution tree
 build_parallella/
+# folder reserved for examples used on other branches of this repository
+meta-example/
 # Add some suitable folder names for projects
 meta-mywork/
 meta-project/
