@@ -18,7 +18,7 @@ $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib bu
 
 Clone this repository onto your Linux build machine:
 ```bash
-$ git clone git@github.com:peteasa/parallella-yoctobuild
+$ git clone -b yoctobuild git@github.com:peteasa/parallella-yoctobuild
 $ cd parallella-yoctobuild
 ```
 
