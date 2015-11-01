@@ -81,6 +81,35 @@ $ smart upgrade
 
 The SDK is found at `parallella/parallella-yoctobuild/build_parallella/tmp/deploy/sdk`
 
+### Adding your own projects or modifying this environment
+
+Yocto allows you to inherit from recipes and override things that you need to replace.  In practice, to tailor the parallella-yoctobuild environment to your own requirements you only have to create a version of the bblayers.conf and local.conf files that suit your needs and copy them to build_parallella/conf at the appropriate time.  The .gitignore file in this environment allows you to create folders like:
+
+```bash
+$ mkdir parallella-yoctobuild/meta_mywork
+$ mkdir parallella-yoctobuild/meta-project
+$ mkdir parallella-yoctobuild/meta-projects
+$ mkdir parallella-yoctobuild/meta-test
+```
+
+the above folders will remain ignored by git system.  With your version of local.conf and bblayers.conf and any additional layers or bbappend recipes stored in one of these four folders it is then possible to create the build that you need whilst at the same time being able to easily take new versions of this environment with a simple git update.  So you dont need to modify any of the files I provide, making git updating easier (no conflicts or local checked out files).
+
+Your workflow would be:
+
+```bash
+$ cd parallella-yoctobuild/meta-project
+$ source prepare-project.sh
+```
+
+prepare-project.sh would contain something like:
+```
+#!/bin/sh
+
+cd ..
+source poky/oe-init-build-env build_parallella
+cp ../meta-project/local_conf/*.conf ./conf
+```
+
 ### Links to other information
 
 Tutorials - [](https://github.com/peteasa/parallella/wiki/Tutorial-index)
@@ -88,4 +117,6 @@ Tutorials - [](https://github.com/peteasa/parallella/wiki/Tutorial-index)
 Troubleshooting notes - [Troubleshooting notes](https://github.com/peteasa/parallella-yoctobuild/wiki/Troubleshooting-notes)
 
 Instructions for contributors - [Instructions for contributors](https://github.com/peteasa/parallella-yoctobuild/wiki/Instructions-for-contributors)
+
+Instructions for  writing to the SD card - [Create SD card](https://github.com/peteasa/parallella/wiki/Create-SD-card)
 
