@@ -4,11 +4,10 @@ The aim of this project is to create an hdmi version for the parallella board us
 
 A Simple build environment for [Parallella](http://www.parallella.org/) using [Yocto](http://www.yoctoproject.org/)
 
-The following branches are significant in this repository:
+Two branches are significant in this repository:
 
-- [parallella-elink-redesign](https://github.com/peteasa/parallella-yoctobuild/tree/parallella-elink-redesign) - this branch - contains an example layer that demonstrates how to extend the yocto build to add your own design.  See the [parallella](https://github.com/peteasa/parallella/wiki) project for more details and Tutorials
-- [elink-redesign](https://github.com/peteasa/parallella-yoctobuild/tree/elink-redesign) - the default branch that contains a working yocto build environment using official bitstream published by the Parallella team.
-- of historical interest [yoctobuild](https://github.com/peteasa/parallella-yoctobuild/tree/yoctobuild) - old elink and build environment for original parallella linux distribution
+- [elink-redesign](https://github.com/peteasa/parallella-yoctobuild/tree/elink-redesign) - the default branch
+- [parallella-elink-redesign](https://github.com/peteasa/parallella-yoctobuild/tree/parallella-elink-redesign) - this branch - that is the same as elink-redesign with the addition of an example layer that demonstrates how to extend the yocto build to add your own design.  See the [parallella](https://github.com/peteasa/parallella/wiki) project for more details and Tutorials
 
 ## Instructions
 
@@ -42,10 +41,11 @@ The result will be new folders in the submodule `parallella/parallella-yoctobuil
 
 ### Setting up your shell environment
 
-To prepare and run `oe-init-build-env` you need to run the `prepareyoctobuild.sh` script:
+To prepare and run `oe-init-build-env` you need to run the `prepareyoctobuild.sh` script.  Notice on this branch, to use the example layer cd into meta-example:
 
 ```bash
-$ source prepareyoctobuild.sh
+$ cd meta-example
+$ source prepareexampleyoctobuild.sh
 ```
 
 This needs to be done once per session.
@@ -57,7 +57,7 @@ This needs to be done once per session.
 To start the yocto build in the `build` folder run:
 
 ```bash
-$ bitbake hdmi-image
+$ bitbake hdmi-image-example
 ```
 
 If you want an SDK then in the same `build` folder, run:
