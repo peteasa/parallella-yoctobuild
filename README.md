@@ -1,6 +1,6 @@
 # parallella-yoctobuild elink-redesign
 
-The aim of this project is to create an hdmi version of the elink-redesign project with 2015.1 SDK
+The aim of this project is to create an hdmi version for the parallella board using an fpga built from the oh project with 2015.1 SDK
 
 A Simple build environment for [Parallella](http://www.parallella.org/) using [Yocto](http://www.yoctoproject.org/)
 
@@ -106,6 +106,8 @@ cp ../meta-project/local_conf/*.conf ./conf
 ```
 
 ### Links to other information
+
+Tutorials - [](https://github.com/peteasa/parallella/wiki/Tutorial-index)
 
 Troubleshooting notes - [Troubleshooting notes](https://github.com/peteasa/parallella-yoctobuild/wiki/Troubleshooting-notes)
 
