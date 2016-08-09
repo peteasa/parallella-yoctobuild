@@ -18,7 +18,7 @@ fi
 export CROSS_COMPILE=
 export EPIPHANY_HOME=/usr/epiphany/epiphany-sdk
 export EPIPHANY_HDF=${EPIPHANY_HOME}/bsps/current/platform.hdf
-export LD_LIBRARY_PATH=/usr/lib/epiphany-elf:/usr/lib:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/epiphany-elf:/usr/lib:${LD_LIBRARY_PATH}
 
 ## EXOTIC_TARGET_SYS is used in yocto Makefiles for epiphany code so define it here 
 export EXOTIC_TARGET_SYS=epiphany-elf
