@@ -22,9 +22,16 @@ $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib bu
 ### Cloning this repository
 
 Clone this repository onto your Linux build machine:
+
 ```bash
 $ git clone git@github.com:peteasa/parallella-yoctobuild
 $ cd parallella-yoctobuild
+```
+
+Checkout the branch that provides the versions that you want to use:
+
+```bash
+$ git checkout elink-redesign
 ```
 
 To prepare the environment and download the necessary git submodules, you need to run the `initgitsubmodules.sh` script. This only needs to be done once:
