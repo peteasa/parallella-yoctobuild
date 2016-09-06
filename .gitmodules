@@ -1,9 +1,6 @@
-[submodule "meta-xilinx"]
-	path = meta-xilinx
-	url = https://github.com/Xilinx/meta-xilinx.git
 [submodule "poky"]
 	path = poky
-	url = https://github.com/peteasa/poky.git
+	url = git://git.yoctoproject.org/poky.git
 [submodule "meta-epiphany"]
 	path = meta-epiphany
 	url = https://github.com/peteasa/meta-epiphany.git

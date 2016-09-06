@@ -1,23 +1,30 @@
 #!/bin/bash
 
-echo "Note to set the environment variables run"
-echo "  source setup-epiphany-sdk-in-poky-sdk.sh"
+if [[ $_ = $0 ]]
+then
+  echo "ERROR: to set the environment variables run"
+  echo "  source setup-epiphany-sdk-in-poky-sdk.sh"
+  [[ $PS1 ]] && return || exit;
+fi
 
-if ! [ -d "/opt/poky" ]
+if ! [ -d "/opt/poky/2.0.1" ]
 then
   echo
-  echo "NOTE: To run this script you must create the yocto SDK including IMAGE_INSTALL += kernel-dev kernel-devsrc see hdmi-image.bb"
+  echo "ERROR:  Only run this script on a poky SDK build machine"
+  echo "    To run this script you must create the yocto SDK"
+  echo "    including IMAGE_INSTALL += kernel-dev kernel-devsrc see hdmi-image.bb"
   echo "One way to create the SDK is with: bitbake -c populate_sdk hdmi-image"
-  echo "    Then install the SDK using the script found at "
-  echo "    build_parallella/tmp/deploy/sdk/poky-glibc-x86_64-hdmi-image-debug-armv7ahf-vfp-neon-toolchain-1.7.sh"
+  echo "    Then install the SDK on a compatible using the script found at "
+  echo "    build_parallella/tmp/deploy/sdk/poky-glibc-x86_64-hdmi-image-debug-armv7ahf-vfp-neon-toolchain-2.0.1.sh"
   echo
+  [[ $PS1 ]] && return || exit;
 else
-  source /opt/poky/1.7/environment-setup-armv7ahf-vfp-neon-poky-linux-gnueabi
+  source /opt/poky/2.0.1/environment-setup-armv7ahf-vfp-neon-poky-linux-gnueabi
 fi
 
 # Test to see if yocto sdk is correctly setup
-# Note it is not essential to use /opt/poky/1.7 as the location
-: ${OECORE_NATIVE_SYSROOT?"Please fix poky sdk, following command failed:- source /opt/poky/1.7/environment-setup-armv7ahf-vfp-neon-poky-linux-gnueabi"}
+# Note it is not essential to use /opt/poky/2.0.1 as the location
+: ${OECORE_NATIVE_SYSROOT?"Please fix poky sdk, following command failed:- source /opt/poky/2.0.1/environment-setup-armv7ahf-vfp-neon-poky-linux-gnueabi"}
 
 ## This is the location of the epiphany sdk
 export EXOTIC_TARGET_ARCH=epiphany

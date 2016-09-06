@@ -1,6 +1,6 @@
 # parallella-yoctobuild `parallella-elink-redesign`
 
-The aim of this project is to create an hdmi version for the parallella board using an fpga built from the oh project with 2015.1 SDK
+The aim of this project is to create an hdmi version for the parallella board using an fpga built from the oh project with the latest Epiphany SDK
 
 A Simple build environment for [Parallella](http://www.parallella.org/) using [Yocto](http://www.yoctoproject.org/)
 
@@ -22,9 +22,16 @@ $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib bu
 ### Cloning the super project
 
 Clone git@github.com:peteasa/parallella onto your Linux build machine:
+
 ```bash
 $ git clone git@github.com:peteasa/parallella
 $ cd parallella
+```
+
+Checkout the branch that provides the versions that you want to use:
+
+```bash
+$ git checkout parallella-elink-redesign
 ```
 
 To prepare the environment and download the necessary git submodules, you need to run the `initgitsubmodules.sh` script. This only needs to be done once:
