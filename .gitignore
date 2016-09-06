@@ -7,6 +7,10 @@ meta-example/
 # Add some suitable folder names for projects
 # Please feel free to use any of these folder names for your project
 meta-mywork/
+mywork/
 meta-project/
+project/
 meta-projects/
+projects/
 meta-test/
+test/
