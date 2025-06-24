@@ -16,8 +16,8 @@ then
 fi
 
 export CROSS_COMPILE=
-export EPIPHANY_HOME=/usr/epiphany/epiphany-sdk
-export EPIPHANY_HDF=${EPIPHANY_HOME}/bsps/current/platform.hdf
+export EPIPHANY_HOME=/usr/epiphany-elf/sys-root
+export EPIPHANY_HDF=/usr/share/epiphany/bsps/current/platform.hdf
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/epiphany-elf:/usr/lib:${LD_LIBRARY_PATH}
 
 ## EXOTIC_TARGET_SYS is used in yocto Makefiles for epiphany code so define it here 
@@ -27,11 +27,13 @@ mkdir -p /usr/bin/epiphany-elf
 
 if ! [ -e "/usr/bin/epiphany-elf/gcc" ]
 then
+  mkdir -p /usr/bin/epiphany-elf
   ln -s /usr/bin/epiphany-elf-gcc /usr/bin/epiphany-elf/gcc
   ln -s /usr/bin/epiphany-elf-objcopy /usr/bin/epiphany-elf/objcopy
 
   ## make linux uapi available for applications that use the epiphany driver
-  ln -s /usr/src/kernel/include/uapi/linux /usr/include/uapi/linux
+  mkdir -p /usr/include/uapi/linux
+  ln -s /usr/src/kernel/include/uapi/misc/epiphany.h /usr/include/uapi/linux
 fi
 
 ##
