@@ -1,23 +1,17 @@
-# parallella-yoctobuild elink-redesign
+# parallella-yoctobuild y2024.2
 
 The aim of this project is to create an hdmi version for the parallella board using an fpga built from the oh project with the latest Epiphany SDK
 
 A Simple build environment for [Parallella](http://www.parallella.org/) using [Yocto](http://www.yoctoproject.org/)
 
-Two branches are significant in this repository:
+One branch is significant in this repository:
 
-- [elink-redesign](https://github.com/peteasa/parallella-yoctobuild) - this branch 
-- [parallella-elink-redesign](https://github.com/peteasa/parallella-yoctobuild/tree/parallella-elink-redesign) - contains an example layer that demonstrates how to extend the yocto build to add your own design.  See the [parallella](https://github.com/peteasa/parallella/wiki) project for more details and Tutorials
+- [y2024.2](https://github.com/peteasa/parallella-yoctobuild/tree/y2024.2) - this branch 
 
 ## Instructions
 
 ### Installing required packages
 
-To use `yocto` you first need to install some packages. See latest [Yocto Project Quick Start](http://www.yoctoproject.org/docs/latest/yocto-project-qs/yocto-project-qs.html). This assumes you are working on a Ubuntu machine:
-
-```bash
-$ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm
-```
 
 ### Cloning this repository
 
@@ -26,12 +20,7 @@ Clone this repository onto your Linux build machine:
 ```bash
 $ git clone git@github.com:peteasa/parallella-yoctobuild --recurse-submodules
 $ cd parallella-yoctobuild
-```
-
-Checkout the branch that provides the versions that you want to use:
-
-```bash
-$ git checkout main
+$ git checkout y2024.2
 ```
 
 Make sure submodules are set up correctly
@@ -40,7 +29,7 @@ Make sure submodules are set up correctly
 $ git submodule update --init
 ```
 
-The result will be new folders `poky`, `meta-xilinx`, `meta-parallella`, `meta-epiphany` and `meta-exotic` created from specific commits on github.
+The result will be new folders `poky`, `meta-parallella` and `meta-epiphany` created from specific commits on github.
 
 ### Setting up your shell environment
 
@@ -66,19 +55,6 @@ If you want an SDK then in the same `build` folder, run:
 
 ```bash
 $ bitbake -c populate_sdk hdmi-image
-```
-
-Other images to build can be found in `meta-parallella/recipes-epiphany/images`.
-
-The result will be a complete build for the parallella board built on the build machine
-
-`parallella-yoctobuild/build_parallella/tmp/deploy/images/parallella-hdmi`
-
-Plus for free a complete distribution folder that you publish from a web server to update specific packages on the target - just like you use when you run `sudo apt-get install` on your Linux build machine.  This project uses [smart](https://labix.org/smart) as the package manager on the target:
-
-```bash
-$ smart update
-$ smart upgrade
 ```
 
 The SDK is found at `parallella-yoctobuild/build_parallella/tmp/deploy/sdk`
@@ -114,10 +90,6 @@ cp ../meta-project/local_conf/*.conf ./conf
 
 ### Links to other information
 
-Tutorials - [](https://github.com/peteasa/parallella/wiki/Tutorial-index)
+I am building up a new set of notes about FGPA and embedded development Linux here: [PYNQ-e](https://paracpg.gitlab.io/).
 
-Troubleshooting notes - [Troubleshooting notes](https://github.com/peteasa/parallella-yoctobuild/wiki/Troubleshooting-notes)
-
-Instructions for contributors - [Instructions for contributors](https://github.com/peteasa/parallella-yoctobuild/wiki/Instructions-for-contributors)
-
-Instructions for  writing to the SD card - [Create SD card](https://github.com/peteasa/parallella/wiki/Create-SD-card)
+Please feel free to open a Discussion or an Issue if you are having problems!
